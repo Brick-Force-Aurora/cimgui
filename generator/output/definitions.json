@@ -5945,59 +5945,6 @@
       "stname": "ImGuiErrorRecoveryState"
     }
   ],
-  "ImGuiFreeType_GetBuilderForFreeType": [
-    {
-      "args": "()",
-      "argsT": [],
-      "argsoriginal": "()",
-      "call_args": "()",
-      "cimguiname": "ImGuiFreeType_GetBuilderForFreeType",
-      "defaults": {},
-      "funcname": "GetBuilderForFreeType",
-      "location": "imgui_freetype:46",
-      "namespace": "ImGuiFreeType",
-      "ov_cimguiname": "ImGuiFreeType_GetBuilderForFreeType",
-      "ret": "const ImFontBuilderIO*",
-      "signature": "()",
-      "stname": ""
-    }
-  ],
-  "ImGuiFreeType_SetAllocatorFunctions": [
-    {
-      "args": "(void*(*alloc_func)(size_t sz,void* user_data),void(*free_func)(void* ptr,void* user_data),void* user_data)",
-      "argsT": [
-        {
-          "name": "alloc_func",
-          "ret": "void*",
-          "signature": "(size_t sz,void* user_data)",
-          "type": "void*(*)(size_t sz,void* user_data)"
-        },
-        {
-          "name": "free_func",
-          "ret": "void",
-          "signature": "(void* ptr,void* user_data)",
-          "type": "void(*)(void* ptr,void* user_data)"
-        },
-        {
-          "name": "user_data",
-          "type": "void*"
-        }
-      ],
-      "argsoriginal": "(void*(*alloc_func)(size_t sz,void* user_data),void(*free_func)(void* ptr,void* user_data),void* user_data=nullptr)",
-      "call_args": "(alloc_func,free_func,user_data)",
-      "cimguiname": "ImGuiFreeType_SetAllocatorFunctions",
-      "defaults": {
-        "user_data": "nullptr"
-      },
-      "funcname": "SetAllocatorFunctions",
-      "location": "imgui_freetype:50",
-      "namespace": "ImGuiFreeType",
-      "ov_cimguiname": "ImGuiFreeType_SetAllocatorFunctions",
-      "ret": "void",
-      "signature": "(void*(*)(size_t,void*),void(*)(void*,void*),void*)",
-      "stname": ""
-    }
-  ],
   "ImGuiIDStackTool_ImGuiIDStackTool": [
     {
       "args": "()",
@@ -9883,11 +9830,11 @@
   ],
   "ImGuiTextBuffer_appendf": [
     {
-      "args": "(ImGuiTextBuffer* self, const char* fmt,...)",
+      "args": "(struct ImGuiTextBuffer* buffer, const char* fmt,...)",
       "argsT": [
         {
-          "name": "self",
-          "type": "ImGuiTextBuffer*"
+          "name": "buffer",
+          "type": "struct ImGuiTextBuffer*"
         },
         {
           "name": "fmt",
@@ -9898,8 +9845,8 @@
           "type": "..."
         }
       ],
-      "argsoriginal": "(ImGuiTextBuffer* self, const char* fmt, ...)",
-      "call_args": "(self,fmt,...)",
+      "argsoriginal": "(struct ImGuiTextBuffer* buffer, const char* fmt, ...)",
+      "call_args": "(buffer,fmt,...)",
       "cimguiname": "ImGuiTextBuffer_appendf",
       "defaults": {},
       "funcname": "appendf",
@@ -9908,7 +9855,7 @@
       "manual": true,
       "ov_cimguiname": "ImGuiTextBuffer_appendf",
       "ret": "void",
-      "signature": "(ImGuiTextBuffer*, const char*,...)",
+      "signature": "(struct ImGuiTextBuffer*, const char*,...)",
       "stname": "ImGuiTextBuffer"
     }
   ],
@@ -25301,7 +25248,7 @@
   ],
   "igImQsort": [
     {
-      "args": "(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+      "args": "(void* base,size_t count,size_t size_of_element,int(__cdecl*compare_func)(void const*,void const*))",
       "argsT": [
         {
           "name": "base",
@@ -25316,13 +25263,14 @@
           "type": "size_t"
         },
         {
+          "has_cdecl": "__cdecl",
           "name": "compare_func",
           "ret": "int",
           "signature": "(void const*,void const*)",
-          "type": "int(*)(void const*,void const*)"
+          "type": "int(__cdecl*)(void const*,void const*)"
         }
       ],
-      "argsoriginal": "(void* base,size_t count,size_t size_of_element,int(*compare_func)(void const*,void const*))",
+      "argsoriginal": "(void* base,size_t count,size_t size_of_element,int(__cdecl* compare_func)(void const*,void const*))",
       "call_args": "(base,count,size_of_element,compare_func)",
       "cimguiname": "igImQsort",
       "defaults": {},
@@ -25330,7 +25278,7 @@
       "location": "imgui_internal:364",
       "ov_cimguiname": "igImQsort",
       "ret": "void",
-      "signature": "(void*,size_t,size_t,int(*)(void const*,void const*))",
+      "signature": "(void*,size_t,size_t,int(__cdecl*)(void const*,void const*))",
       "stname": ""
     }
   ],
@@ -25382,7 +25330,7 @@
       "cimguiname": "igImRsqrt",
       "defaults": {},
       "funcname": "ImRsqrt",
-      "location": "imgui_internal:465",
+      "location": "imgui_internal:463",
       "ov_cimguiname": "igImRsqrt_Float",
       "ret": "float",
       "signature": "(float)",
@@ -30138,7 +30086,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -30199,7 +30147,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotHistogram",
       "defaults": {
@@ -30259,7 +30207,7 @@
           "type": "int"
         }
       ],
-      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
+      "argsoriginal": "(const char* label,const float* values,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0),int stride=sizeof(float))",
       "call_args": "(label,values,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size,stride)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -30320,7 +30268,7 @@
           "type": "ImVec2"
         }
       ],
-      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.40282346638528859811704183484516925e+38F,float scale_max=3.40282346638528859811704183484516925e+38F,ImVec2 graph_size=ImVec2(0,0))",
+      "argsoriginal": "(const char* label,float(*values_getter)(void* data,int idx),void* data,int values_count,int values_offset=0,const char* overlay_text=((void*)0),float scale_min=3.402823466e+38F,float scale_max=3.402823466e+38F,ImVec2 graph_size=ImVec2(0,0))",
       "call_args": "(label,values_getter,data,values_count,values_offset,overlay_text,scale_min,scale_max,graph_size)",
       "cimguiname": "igPlotLines",
       "defaults": {
@@ -30540,7 +30488,7 @@
           "type": "const char*"
         }
       ],
-      "argsoriginal": "(float fraction,const ImVec2& size_arg=ImVec2(-1.17549435082228750796873653722224568e-38F,0),const char* overlay=((void*)0))",
+      "argsoriginal": "(float fraction,const ImVec2& size_arg=ImVec2(-1.175494351e-38F,0),const char* overlay=((void*)0))",
       "call_args": "(fraction,size_arg,overlay)",
       "cimguiname": "igProgressBar",
       "defaults": {

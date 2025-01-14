@@ -10,7 +10,7 @@
 :: impl_definitions.lua for implementation function definitions
 
 :: set your PATH if necessary for LuaJIT or Lua5.1 or luajit with: (for example)
-set PATH=%PATH%;C:\anima;C:\mingws\i686-7.2.0-release-posix-dwarf-rt_v5-rev1\mingw32\bin;
+set PATH=%PATH%;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\Hostx86\x86;
 :: set PATH=%PATH%;C:\luaGL;C:\i686-7.2.0-release-posix-dwarf-rt_v5-rev1\mingw32\bin;
 :: set PATH=%PATH%;C:\luaGL\sources\luajit-master\luajit-master\bin\mingw32;C:\mingw32\bin;
 ::process  files
@@ -20,7 +20,7 @@ set PATH=%PATH%;C:\anima;C:\mingws\i686-7.2.0-release-posix-dwarf-rt_v5-rev1\min
 :: examples: "" "internal" "internal comments"
 :: arg[3..n] name of implementations to generate and/or CFLAGS (e.g. -DIMGUI_USER_CONFIG) 
 ::-DIMGUI_USE_WCHAR32 should not be used (is discarded)
-luajit ./generator.lua gcc "internal noimstrv" glfw opengl3 opengl2 sdl2 sdl3 -DIMGUI_USE_WCHAR32 %*
+luajit ./generator.lua cl "internal noimstrv" dx9 dx11 win32 %*
 
 ::leave console open
 cmd /k
