@@ -1,3 +1,8 @@
+# Description
+cimgui library for use in the Brick-Force Aurora project with ImGui.NET wrapping.
+Setup for DX9 and Win32 ImGui backends with freetype.
+Includes additional helpers such as styling code since writing the colors through ImGui.NET breaks them.
+
 # cimgui [![Build Status](https://travis-ci.org/cimgui/cimgui.svg?branch=master)](https://travis-ci.org/cimgui/cimgui)
 
 
